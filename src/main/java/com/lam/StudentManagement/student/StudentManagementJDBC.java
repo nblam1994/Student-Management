@@ -15,12 +15,12 @@ public class StudentManagementJDBC implements IStudentManagement {
     public LinkedHashMap<String, Student> getStudents() {
 
         /*
-            SELECT * FROM com.lam.StudentManagement.student;
+            SELECT * FROM student;
          */
         Connection dbConnection = null;
         PreparedStatement statement = null;
 
-        String query = "SELECT * FROM com.lam.StudentManagement.student";
+        String query = "SELECT * FROM student";
         LinkedHashMap<String, Student> result = new LinkedHashMap<String, Student>();
 
         try {
@@ -68,8 +68,8 @@ public class StudentManagementJDBC implements IStudentManagement {
     public void setStudents(LinkedHashMap<String, Student> students) {
 
         /*
-            TRUNCATE TABLE com.lam.StudentManagement.student;
-            INSERT INTO com.lam.StudentManagement.student(StudentID, Name, Age, ClassName, Grade) VALUES
+            TRUNCATE TABLE student;
+            INSERT INTO student(StudentID, Name, Age, ClassName, Grade) VALUES
                 (students);
          */
 
@@ -77,8 +77,8 @@ public class StudentManagementJDBC implements IStudentManagement {
         clearData();
         Connection dbConnection = null;
         PreparedStatement statement = null;
-        String sql = " INSERT INTO com.lam.StudentManagement.student(StudentID, Name, Age, ClassName, Grade) VALUES" +
-                                "(?,?,?,?,?);";
+        String sql = " INSERT INTO student(StudentID, Name, Age, ClassName, Grade) VALUES" +
+                "(?,?,?,?,?);";
 
         try {
 
@@ -126,7 +126,7 @@ public class StudentManagementJDBC implements IStudentManagement {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "TRUNCATE TABLE com.lam.StudentManagement.student;";
+        String sql = "TRUNCATE TABLE student;";
 
 
         try {
@@ -161,7 +161,7 @@ public class StudentManagementJDBC implements IStudentManagement {
     public void addStudent(Student student) {
 
         /*
-            INSERT INTO com.lam.StudentManagement.student(StudentID, Name, Age, ClassName, Grade) VALUES
+            INSERT INTO student(StudentID, Name, Age, ClassName, Grade) VALUES
                 (students);
          */
 
@@ -169,7 +169,7 @@ public class StudentManagementJDBC implements IStudentManagement {
         Connection dbConnection = null;
         PreparedStatement statement = null;
 
-        String query = "INSERT INTO com.lam.StudentManagement.student(StudentID, Name, Age, ClassName, Grade) VALUES " +
+        String query = "INSERT INTO student(StudentID, Name, Age, ClassName, Grade) VALUES " +
                 "(?, ?, ?, ?, ?);";
 
 
@@ -211,7 +211,7 @@ public class StudentManagementJDBC implements IStudentManagement {
     public void editStudent(String idOld, Student newStudent) {
 
         /*
-            UPDATE com.lam.StudentManagement.student
+            UPDATE student
             SET
             StudentID = newStudent.getID,
             Name = newStudent.getName,
@@ -224,7 +224,7 @@ public class StudentManagementJDBC implements IStudentManagement {
         Connection dbConnection = null;
         PreparedStatement statement = null;
 
-        String sql = "UPDATE com.lam.StudentManagement.student SET " +
+        String sql = "UPDATE student SET " +
                 "Name = ?, " +
                 "Age = ?, " +
                 "ClassName = ?, "+
@@ -270,14 +270,14 @@ public class StudentManagementJDBC implements IStudentManagement {
     public Student removeStudent(String id) {
 
         /*
-            DELETE FROM com.lam.StudentManagement.student WHERE StudentID = id;
+            DELETE FROM student WHERE StudentID = id;
          */
 
         Connection dbConnection = null;
         PreparedStatement statement = null;
 
 
-        String sql = "DELETE FROM student_managent WHERE StudentID = ?";
+        String sql = "DELETE FROM student WHERE StudentID = ?";
 
         try {
 
@@ -315,13 +315,13 @@ public class StudentManagementJDBC implements IStudentManagement {
     public Student getStudentById(String id) {
 
         /*
-            SELECT * FROM com.lam.StudentManagement.student WHERE StudentID = id;
+            SELECT * FROM student WHERE StudentID = id;
          */
 
         Connection dbConnection = null;
         PreparedStatement statement = null;
 
-        String sql = "SELECT * FROM com.lam.StudentManagement.student WHERE StudentID = ?";
+        String sql = "SELECT * FROM student WHERE StudentID = ?";
         Student student = null;
 
         try {
@@ -384,10 +384,12 @@ public class StudentManagementJDBC implements IStudentManagement {
 
             dbConnection = DriverManager.getConnection(
                     DB_CONNECTION, DB_USER,DB_PASSWORD);
+            System.out.println("Connected Database Successfully...\n\n");
             return dbConnection;
 
         } catch (SQLException e) {
 
+            System.out.println("Fail to connect to databse");
             System.out.println(e.getMessage());
 
         }
