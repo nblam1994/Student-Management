@@ -7,16 +7,16 @@
 
 
 
-<form action="/add-student" method="POST">
-ID: <input type="text" name="id" value="1">
+<form action="/jsp/student-add" method="POST">
+ID: <input type="text" name="id">
 <br />
-name: <input type="text" name="name" value="lam nguyen">
+name: <input type="text" name="name">
 <br />
-age: <input type="number" name="age" value="20">
+age: <input type="number" name="age">
 <br />
-class <input type="text" name="class-name" value="12">
+class <input type="text" name="class-name">
 <br />
-grade <input type="text" name="grade" value="A">
+grade <input type="text" name="grade">
 <br />
 <input type="submit" value="Submit" >
 </form>

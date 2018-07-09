@@ -4,14 +4,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class StudentManagement2Application extends SpringBootServletInitializer{
+@EnableJpaAuditing
+public class StudentManagement2Application { //extends SpringBootServletInitializer{
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(StudentManagement2Application.class);
-	}
+//	@Override
+//	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//		return application.sources(StudentManagement2Application.class);
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagement2Application.class, args);

@@ -2,7 +2,7 @@
 
 
 
-<c:forEach items="${studentList}" item="student">
+<c:forEach items="${studentList}" var="item">
     ID: ${item.studentID}
     <br />
     name: ${item.name}

@@ -1,7 +1,6 @@
 
-<%@ page import ="com.hvcg.servlet.student.*" %>
-<%@ page import ="java.util.LinkedHashMap"%>
-
+<%@ page import ="com.lam.StudentManagement.student.*" %>
+<%@ page import="java.util.List,java.util.ArrayList,java.util.Iterator,java.lang.Iterable"%>
 <html>
 <head>
     <title>List</title>
@@ -9,21 +8,24 @@
 
 <body>
 
-<%  LinkedHashMap<String, Student>  studentList = (LinkedHashMap<String, Student>)(request.getAttribute("studentList")); %>
+<%  Iterable<Object> list = studentList;  %>
 
-<% for(String id : studentList.keySet()) { %>
+<% for(Object student : list) { %>
 
-<% Student student = studentList.get(id); %>
+<% Student std = (Student)(student);   %>
 
-ID: <%= student.getStudentID()%>
+ID: <%= std.getStudentID()%>
 <br />
-name: <%= student.getName()%>
+name: <%= std.getName()%>
 <br />
-age: <%= student.getAge()%>
+age: <%= std.getAge()%>
 <br />
-class: <%= student.getClassName()%>
+class: <%= std.getClassName()%>
 <br />
-grade: <%= student.getGrade()%>
+grade: <%= std.getGrade()%>
+
+<br />
+<br />
 
 <% } %>
 

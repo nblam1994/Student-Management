@@ -9,20 +9,10 @@
 
 
 
-<c:choose>
-    <c:when test = "${param.success eq 'true'}">
-        <h5 style="color: red">Edit successful</h5>
-    </c:when>
-    <c:when test = "${param.success eq 'false'}">
-            <h5 style="color: red">Edit fail</h5>
-    </c:when>
-</c:choose>
+<form action="/jsp/student-edit" method="POST">
 
 
-<form action="/edit-student" method="POST">
-
-
-ID: <input type="hidden" name="id" value="${id}">
+ID: <input type="text" name="id" value="${id}">
 <br />
 name: <input type="text" name="name" value="${name}">
 <br />

@@ -2,8 +2,8 @@ package com.lam.StudentManagement.dao;
 
 import com.lam.StudentManagement.student.Student;
 
-import java.util.LinkedHashMap;
 import java.util.List;
+
 
 public interface StudentDAO {
 
